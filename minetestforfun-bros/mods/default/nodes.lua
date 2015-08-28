@@ -54,7 +54,7 @@ minetest.register_node("default:brick2_or", {
 	description = "Brick Block 2 Unbreakable",
 	tiles = {"default_brick_or.png"},
 	is_ground_content = false,
-	drop = "",
+	drop = {},
 	groups = {unbreakable=1},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -63,7 +63,7 @@ minetest.register_node("default:random_drop", {
 	description = "Random Drop Pieces (Unbreakable)",
 	tiles = {"default_brick_or.png"},
 	is_ground_content = false,
-	drop = "",
+	drop = {},
 	groups = {unbreakable=1},
 	sounds = default.node_sound_stone_defaults(),
 	paramtype = "light",
@@ -121,7 +121,7 @@ minetest.register_node("default:damier_black", {
 	description = "Black Damier Block",
 	tiles = {"default_damier_black.png"},
 	is_ground_content = false,
-	drop = "",
+	drop = {},
 	groups = {unbreakable=1},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -130,7 +130,7 @@ minetest.register_node("default:damier_white", {
 	description = "White Damier Block",
 	tiles = {"default_damier_white.png"},
 	is_ground_content = false,
-	drop = "",
+	drop = {},
 	groups = {unbreakable=1},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -138,7 +138,7 @@ minetest.register_node("default:sol1", {
 	description = "Sol Block 1",
 	tiles = {"default_sol1.png"},
 	is_ground_content = false,
-	drop = "",
+	drop = {},
 	groups = {unbreakable=1},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -147,66 +147,65 @@ minetest.register_node("default:sol2", {
 	description = "Sol Block 2",
 	tiles = {"default_sol2.png"},
 	is_ground_content = false,
-	drop = "",
+	drop = {},
 	groups = {unbreakable=1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
-
-for _, i in pairs({"blue", "green", "orange"}) do	
+local i
+for _, i in pairs({"blue", "green", "orange"}) do
 	minetest.register_node("default:steel_"..i.."_top_left", {
-		description = i .. " panel block "..i.." (top_left/right)",
+		description = i .. " Panel Block (top_left/right)",
 		tiles = {
 		"default_steel_"..i.."_center.png", "default_steel_"..i.."_center.png",
 		"default_steel_"..i.."_top.png", "default_steel_"..i.."_top.png",
-		"default_steel_"..i.."_top_right.png", "default_steel_"..i.."_top_left.png"
-		
+		"default_steel_"..i.."_top_right.png", "default_steel_"..i.."_top_left.png",
 		},
 		paramtype2 = "facedir",
 		is_ground_content = false,
-		drop = "",
+		drop = {},
 		groups = {unbreakable=1},
 		sounds = default.node_sound_stone_defaults(),
 	})
 
 	minetest.register_node("default:steel_"..i.."_top", {
-		description = i .. " panel block "..i.." (top)",
+		description = i .. " Panel Block (top)",
 		tiles = {
 		"default_steel_"..i.."_center.png", "default_steel_"..i.."_center.png",
 		"default_steel_"..i.."_top.png", "default_steel_"..i.."_top.png",
-		"default_steel_"..i.."_top.png", "default_steel_"..i.."_top.png"
+		"default_steel_"..i.."_top.png", "default_steel_"..i.."_top.png",
 		},
 		paramtype2 = "facedir",
 		is_ground_content = false,
-		drop = "",
+		drop = {},
 		groups = {unbreakable=1},
 		sounds = default.node_sound_stone_defaults(),
 	})
 
 	minetest.register_node("default:steel_"..i.."_left", {
-		description = i .. " panel block "..i.." (left/right)",
+		description = i .. " Panel Block (left/right)",
 		tiles = {
 		"default_steel_"..i.."_center.png", "default_steel_"..i.."_center.png",
 		"default_steel_"..i.."_center.png", "default_steel_"..i.."_center.png",
-		"default_steel_"..i.."_right.png", "default_steel_"..i.."_left.png"
+		"default_steel_"..i.."_right.png", "default_steel_"..i.."_left.png",
 		},
 		paramtype2 = "facedir",
 		is_ground_content = false,
-		drop = "",
+		drop = {},
 		groups = {unbreakable=1},
 		sounds = default.node_sound_stone_defaults(),
 	})
 
 	minetest.register_node("default:steel_"..i.."_center", {
-		description = i .. " panel block "..i.." (center)",
+		description = i .. " Panel Block (center)",
 		tiles = {
 		"default_steel_"..i.."_center.png", "default_steel_"..i.."_center.png",
 		"default_steel_"..i.."_center.png", "default_steel_"..i.."_center.png",
-		"default_steel_"..i.."_center.png", "default_steel_"..i.."_center.png"
+		"default_steel_"..i.."_center.png", "default_steel_"..i.."_center.png",
 		},
 		paramtype2 = "facedir",
 		is_ground_content = false,
-		drop = "",
+		drop = {},
 		groups = {unbreakable=1},
 		sounds = default.node_sound_stone_defaults(),
 	})
@@ -239,19 +238,19 @@ minetest.register_node("default:water_flowing", {
 			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=0.8}
 		},
 	},
-	alpha = WATER_ALPHA,
+	alpha = default.WATER_ALPHA,
 	paramtype = "light",
 	paramtype2 = "flowingliquid",
 	walkable = false,
 	pointable = false,
 	diggable = false,
 	buildable_to = true,
-	drop = "",
+	drop = {},
 	drowning = 1,
 	liquidtype = "flowing",
 	liquid_alternative_flowing = "default:water_flowing",
 	liquid_alternative_source = "default:water_source",
-	liquid_viscosity = WATER_VISC,
+	liquid_viscosity = default.WATER_VISC,
 	freezemelt = "default:snow",
 	post_effect_color = {a=64, r=100, g=100, b=200},
 	groups = {water=3, liquid=3, puts_out_fire=1, not_in_creative_inventory=1, freezes=1, melt_around=1},
@@ -272,18 +271,18 @@ minetest.register_node("default:water_source", {
 			backface_culling = false,
 		}
 	},
-	alpha = WATER_ALPHA,
+	alpha = default.WATER_ALPHA,
 	paramtype = "light",
 	walkable = false,
 	pointable = false,
 	diggable = false,
 	buildable_to = true,
-	drop = "",
+	drop = {},
 	drowning = 1,
 	liquidtype = "source",
 	liquid_alternative_flowing = "default:water_flowing",
 	liquid_alternative_source = "default:water_source",
-	liquid_viscosity = WATER_VISC,
+	liquid_viscosity = default.WATER_VISC,
 	freezemelt = "default:ice",
 	post_effect_color = {a=64, r=100, g=100, b=200},
 	groups = {water=3, liquid=3, puts_out_fire=1, freezes=1},
@@ -306,17 +305,17 @@ minetest.register_node("default:lava_source", {
 		}
 	},
 	paramtype = "light",
-	light_source = LIGHT_MAX - 1,
+	light_source = default.LIGHT_MAX - 1,
 	walkable = false,
 	pointable = false,
 	diggable = false,
 	buildable_to = true,
-	drop = "",
+	drop = {},
 	drowning = 1,
 	liquidtype = "source",
 	liquid_alternative_flowing = "default:lava_flowing",
 	liquid_alternative_source = "default:lava_source",
-	liquid_viscosity = LAVA_VISC,
+	liquid_viscosity = default.LAVA_VISC,
 	liquid_renewable = false,
 	damage_per_second = 4*2,
 	post_effect_color = {a=192, r=255, g=64, b=0},

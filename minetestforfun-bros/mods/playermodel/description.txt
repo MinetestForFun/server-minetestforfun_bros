@@ -1,1 +1,0 @@
-A basic 3D player model with a basic API.
