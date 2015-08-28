@@ -1,0 +1,3 @@
+return { [1]="default:stone", [2]="default:brick", [3]="default:brick2", [4]="default:brick_or", [5]="default:brick2_or", [6]="default:random_drop", [7]="default:damier_black", [8]="default:damier_white", [9]="default:sol1", [10]="default:sol2", [11]="default:cloud", [12]="default:water_flowing",[13]="default:water_source", [14]="default:lava_source", [15]="default:block_die"}
+
+
