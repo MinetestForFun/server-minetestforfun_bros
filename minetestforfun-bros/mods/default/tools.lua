@@ -54,7 +54,9 @@ end)
 local build_air_place = function(itemstack, player, pointed_thing)
 	local inv = player:get_inventory()
 	local nname = inv:get_stack("main", player:get_wield_index()+1):get_name()
-	if not nname then return end
+	if not nname or nname == "" then
+		nname = "air"
+	end
 	local def = minetest.registered_items[nname]
 	if not def or  def.type ~= "node" then return end
 	local ppos = player:getpos()
