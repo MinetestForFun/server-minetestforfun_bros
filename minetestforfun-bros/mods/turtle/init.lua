@@ -1,4 +1,4 @@
-local path = minetest.get_modpath("mobs")
+local path = minetest.get_modpath("turtle")
 
 -- Mob Api
 dofile(path.."/api.lua")
@@ -8,5 +8,5 @@ dofile(path.."/turtle.lua")
 
 
 if minetest.setting_get("log_mods") then
-	minetest.log("action", "mobs loaded")
+	minetest.log("action", "mod turtle loaded")
 end
