@@ -16,16 +16,16 @@ mobs:register_mob("turtle:turtle", {
 	-- textures and model
 	collisionbox = {-0.4, 0, -0.4, 0.4, 1.2, 0.4},
 	visual = "mesh",
-	mesh = "mobs_turtle.b3d",
+	mesh = "turtle_turtle.b3d",
 	visual_size = {x = 3, y = 3, z = 3},
 	textures = {
-		{"mobs_turtle.png"},
+		{"turtle_turtle.png"},
 	},
 	blood_texture = "mobs_blood.png",
 	-- sounds
 	makes_footstep_sound = true,
 	sounds = {
-		random = "mobs_turtle",
+		random = "turtle_turtlesound",
 	},
 	-- speed and jump
 	walk_velocity = 1,
