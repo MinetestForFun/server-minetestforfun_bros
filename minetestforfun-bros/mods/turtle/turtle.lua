@@ -1,7 +1,7 @@
 
 -- Turtle.lua by farfadet46 from 'mobs_cow' by Krupnovpavel
 
-mobs:register_mob("mobs:cow", {
+mobs:register_mob("turtle:turtle", {
 	-- animal, monster, npc, barbarian
 	type = "animal",
 	-- aggressive, does 5 damage to player when threatened
@@ -33,7 +33,7 @@ mobs:register_mob("mobs:cow", {
 	jump = false,
 	-- drops raw meat when dead
 	drops = {
-		{name = "maptools:silver_coin",
+		{name = "default:gold_lump",
 		chance = 1, min = 1, max = 1,},
 	},
 	-- damaged by
@@ -42,20 +42,18 @@ mobs:register_mob("mobs:cow", {
 	light_damage = 0,
 	-- model animation
 	animation = {
-		speed_normal = 30,		speed_run = 45, --15, 15
+		speed_normal = 15,		speed_run = 15,
 		--stand_start = 0,		stand_end = 30,
 		walk_start = 35,		walk_end = 65,
 		--run_start = 105,		run_end = 135,
 		punch_start = 70,		punch_end = 100, -- est en mode couché :)
 	},
 
-	mobs:capture_mob(self, clicker, 0, 5, 60, false, nil)
-
-	end,
+	-- mobs:capture_mob(self, clicker, 0, 5, 60, false, nil)
 })
 
 
 -- spawn on default;green;prairie grass between 0 and 20 light, 1 in 11000 chance, 1 cow in area up to 31000 in height
 -- mobs:spawn_specific("mobs:cow", {"default:dirt_with_grass"}, {"air"}, 8, 20, 30, 10000, 1, -31000, 31000, true)
 -- register spawn egg
-mobs:register_egg("mobs:turtle", "Turtle", "default_grass.png", 1)
+mobs:register_egg("turtle:turtle", "Turtle", "default_grass.png", 1)
