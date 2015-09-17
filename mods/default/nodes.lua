@@ -288,6 +288,34 @@ minetest.register_node("default:water_source", {
 	groups = {water=3, liquid=3, puts_out_fire=1, freezes=1},
 })
 
+minetest.register_node("default:water_source_static", {
+	description = "Static Water Source",
+	inventory_image = minetest.inventorycube("default_water.png"),
+	drawtype = "liquid",
+	tiles = {
+		{name="default_water_source_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0}}
+	},
+	special_tiles = {
+		-- New-style water source material (mostly unused)
+		{
+			name="default_water_source_animated.png",
+			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0},
+			backface_culling = false,
+		}
+	},
+	alpha = WATER_ALPHA,
+	paramtype = "light",
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	drowning = 1,
+	liquidtype = "source",
+	liquid_viscosity = WATER_VISC,
+	post_effect_color = {a=64, r=100, g=100, b=200},
+	groups = {static = 1, liquid=3, puts_out_fire=1, freezes=1},
+})
+
 --lava
 minetest.register_node("default:lava_source", {
 	description = "Lava Source",
@@ -320,6 +348,39 @@ minetest.register_node("default:lava_source", {
 	damage_per_second = 4*2,
 	post_effect_color = {a=192, r=255, g=64, b=0},
 	groups = {lava=3, liquid=2, hot=3, igniter=1},
+})
+
+minetest.register_node("default:lava_source_static", {
+	description = "Static Lava Source",
+	inventory_image = minetest.inventorycube("default_lava.png"),
+	drawtype = "liquid",
+	tiles = {
+		{name="default_lava_source_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.0}}
+	},
+	special_tiles = {
+		-- New-style lava source material (mostly unused)
+		{
+			name="default_lava_source_animated.png",
+			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.0},
+			backface_culling = false,
+		}
+	},
+	paramtype = "light",
+	light_source = LIGHT_MAX - 1,
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	drop = "",
+	drowning = 1,
+	liquidtype = "source",
+	liquid_alternative_flowing = "default:lava_flowing",
+	liquid_alternative_source = "default:lava_source",
+	liquid_viscosity = LAVA_VISC,
+	liquid_renewable = false,
+	damage_per_second = 4*2,
+	post_effect_color = {a=192, r=255, g=64, b=0},
+	groups = {lava = 3, static = 1, liquid=2, hot = 2, igniter = 1},
 })
 
 -- invisible glass , player die when touch 
