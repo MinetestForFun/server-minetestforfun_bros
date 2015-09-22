@@ -1,0 +1,36 @@
+Default:
+	default:brick
+	default:cobble
+	default:tiles
+	default:stripes_surface
+	default:stripes
+	default:dirt_with_grass
+	default:dry_dirt_with_grass
+	default:dry_dirt
+	default:monochrome_tiled_brick
+	default:blue_tiled_brick
+	default:cyan_tiled_brick
+	default:grey_tiled_brick
+	default:light_blue_tiled_brick
+	default:quarter_green
+	default:quarter_red
+	default:quarter_cyan
+	default:quarter_white
+	default:ice
+	default:cloud
+
+Construct:
+	construct:interrogation_block
+	construct:spikes
+	construct:speedblock
+	construct:music_note
+	construct:music_note_activated
+	construct:climbing_plant
+	construct:coin
+
+Pipes:
+	pipes:straight
+	pipes:left
+	pipes:right
+	pipes:entrance
+
