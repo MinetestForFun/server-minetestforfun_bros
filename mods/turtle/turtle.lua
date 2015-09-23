@@ -1,5 +1,6 @@
 
 -- Turtle.lua by farfadet46 from 'mobs_cow' by Krupnovpavel
+local MAX_TURTLE = 2
 
 mobs:register_mob("turtle:turtle", {
 	-- animal, monster, npc, barbarian
@@ -57,3 +58,36 @@ mobs:register_mob("turtle:turtle", {
 -- mobs:spawn_specific("mobs:cow", {"default:dirt_with_grass"}, {"air"}, 8, 20, 30, 10000, 1, -31000, 31000, true)
 -- register spawn egg
 mobs:register_egg("turtle:turtle", "Turtle", "default_grass.png", 1)
+
+
+
+minetest.register_node("turtle:spawn_turtle", {
+	description = "Spawning Turtle Block",
+	tiles = {"turtle_spawn_turtle.png"},
+	is_ground_content = false,
+	drop = {},
+	groups = {unbreakable=1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+
+
+minetest.register_abm({
+	nodenames = {"turtle:spawn_turtle"},
+	interval = 10,
+	chance = 1,
+	action = function(pos, node)
+		local nb_turtle = 0
+		for m, obj in pairs(minetest.get_objects_inside_radius(pos, 10)) do
+			if obj:get_luaentity() and obj:get_luaentity().name == "turtle:turtle" then
+				nb_turtle = nb_turtle + 1
+			end
+		end
+			
+		if nb_turtle < MAX_TURTLE then
+			pos.y = pos.y + 1
+			minetest.add_entity(pos, "turtle:turtle")
+		end
+	end,
+})
+
