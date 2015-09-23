@@ -303,7 +303,7 @@ minetest.register_node("default:water_source_static", {
 			backface_culling = false,
 		}
 	},
-	alpha = WATER_ALPHA,
+	alpha = default.WATER_ALPHA,
 	paramtype = "light",
 	walkable = false,
 	pointable = false,
@@ -311,7 +311,7 @@ minetest.register_node("default:water_source_static", {
 	buildable_to = true,
 	drowning = 1,
 	liquidtype = "source",
-	liquid_viscosity = WATER_VISC,
+	liquid_viscosity = default.WATER_VISC,
 	post_effect_color = {a=64, r=100, g=100, b=200},
 	groups = {static = 1, liquid=3, puts_out_fire=1, freezes=1},
 })
@@ -366,7 +366,7 @@ minetest.register_node("default:lava_source_static", {
 		}
 	},
 	paramtype = "light",
-	light_source = LIGHT_MAX - 1,
+	light_source = default.LIGHT_MAX - 1,
 	walkable = false,
 	pointable = false,
 	diggable = false,
@@ -376,7 +376,7 @@ minetest.register_node("default:lava_source_static", {
 	liquidtype = "source",
 	liquid_alternative_flowing = "default:lava_flowing",
 	liquid_alternative_source = "default:lava_source",
-	liquid_viscosity = LAVA_VISC,
+	liquid_viscosity = default.LAVA_VISC,
 	liquid_renewable = false,
 	damage_per_second = 4*2,
 	post_effect_color = {a=192, r=255, g=64, b=0},
