@@ -1,31 +1,57 @@
 -- mods/default/nodes.lua
 
-
 --stone
 minetest.register_node("default:stone", {
 	description = "Stone",
 	tiles = {"default_stone.png"},
 	is_ground_content = true,
 	groups = {unbreakable=1},
-	drop = '',
+	drop = {},
 	sounds = default.node_sound_stone_defaults(),
 })
 
 
 
 --brick
-minetest.register_node("default:brick", {
-	description = "Brick Block Unbreakable",
-	tiles = {"default_brick.png"},
+minetest.register_node("default:brick_grey", {
+	description = "Brick Block Grey Unbreakable",
+	tiles = {"default_brick_grey.png"},
 	is_ground_content = false,
 	groups = {unbreakable=1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_node("default:brick_red", {
+	description = "Brick Block Red Unbreakable",
+	tiles = {"default_brick_red.png"},
+	is_ground_content = false,
+	groups = {unbreakable=1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:brick_sand", {
+	description = "Brick Block Sand Unbreakable",
+	tiles = {"default_brick_sand.png"},
+	is_ground_content = false,
+	groups = {unbreakable=1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+--Tiles
+minetest.register_node("default:tiles_orange", {
+	description = "Brick Block Tiles Orange",
+	tiles = {"default_tiles_orange.png"},
+	is_ground_content = false,
+	drop = {},
+	groups = {unbreakable=1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+
 --breakable block
-minetest.register_node("default:brick2", {
-	description = "Brick Block 2",
-	tiles = {"default_brick2.png"},
+minetest.register_node("default:breakable_brick_orange", {
+	description = "Brick Block Orange",
+	tiles = {"default_breakable_brick_orange.png"},
 	is_ground_content = false,
 	drop = "default:piece",
 	groups = {unbreakable=1},
@@ -41,18 +67,18 @@ minetest.register_node("default:brick2", {
 	end,
 })
 
-minetest.register_node("default:brick_or", {
-	description = "Brick Block 2",
-	tiles = {"default_brick_or.png"},
+minetest.register_node("default:breakable_brick_white", {
+	description = "Brick Block White",
+	tiles = {"default_breakable_brick_white.png"},
 	is_ground_content = false,
 	drop = "default:piece",
 	groups = {unbreakable=1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:brick2_or", {
-	description = "Brick Block 2 Unbreakable",
-	tiles = {"default_brick_or.png"},
+minetest.register_node("default:unbreakable_brick_or", {
+	description = "Brick Block Or Unbreakable",
+	tiles = {"default_unbreakable_brick_or.png"},
 	is_ground_content = false,
 	drop = {},
 	groups = {unbreakable=1},
@@ -61,7 +87,7 @@ minetest.register_node("default:brick2_or", {
 
 minetest.register_node("default:random_drop", {
 	description = "Random Drop Pieces (Unbreakable)",
-	tiles = {"default_brick_or.png"},
+	tiles = {"default_unbreakable_brick_or.png"},
 	is_ground_content = false,
 	drop = {},
 	groups = {unbreakable=1},
@@ -94,7 +120,7 @@ minetest.register_node("default:random_drop", {
 		if nb and nb > 1 then
 			meta:set_int("piece_nb", nb-1)
 		else
-			minetest.set_node(pos, {name= "default:brick2"})
+			minetest.set_node(pos, {name= "default:unbreakable_brick_or"})
 		end
 
 	end,
@@ -113,9 +139,65 @@ minetest.register_node("default:random_drop", {
 	end,
 })
 
+-- Quarter
+minetest.register_node("default:quarter_cyan", {
+	description = "Quarter Cyan",
+	tiles = {"default_quarter_cyan.png"},
+	is_ground_content = false,
+	drop = {},
+	groups = {unbreakable=1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:quarter_green", {
+	description = "Quarter Green",
+	tiles = {"default_quarter_green.png"},
+	is_ground_content = false,
+	drop = {},
+	groups = {unbreakable=1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:quarter_red", {
+	description = "Quarter Red",
+	tiles = {"default_quarter_red.png"},
+	is_ground_content = false,
+	drop = {},
+	groups = {unbreakable=1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:quarter_white", {
+	description = "Quarter White",
+	tiles = {"default_quarter_white.png"},
+	is_ground_content = false,
+	drop = {},
+	groups = {unbreakable=1},
+	sounds = default.node_sound_stone_defaults(),
+})
 
 
+--Sand
+minetest.register_node("default:sand", {
+	description = "Sand Unbreakable",
+	tiles = {"default_sand.png"},
+	is_ground_content = false,
+	groups = {unbreakable=1},
+	sounds = default.node_sound_stone_defaults(),
+})
 
+
+minetest.register_node("default:dirt_with_grass", {
+	description = "Dirt with Grass",
+	tiles = {"default_grass.png", "default_dirt.png",
+		{name = "default_dirt.png^default_grass_side.png",
+			tileable_vertical = false}},
+	groups = {unbreakable=1},
+	drop = {},
+	sounds = default.node_sound_dirt_defaults({
+		footstep = {name="default_grass_footstep", gain=0.8},
+	}),
+})
 
 minetest.register_node("default:damier_black", {
 	description = "Black Damier Block",
@@ -134,23 +216,73 @@ minetest.register_node("default:damier_white", {
 	groups = {unbreakable=1},
 	sounds = default.node_sound_stone_defaults(),
 })
-minetest.register_node("default:sol1", {
-	description = "Sol Block 1",
-	tiles = {"default_sol1.png"},
+
+--Stripes
+minetest.register_node("default:stripes", {
+	description = "Stripes",
+	tiles = {"default_stripes.png"},
 	is_ground_content = false,
 	drop = {},
 	groups = {unbreakable=1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:sol2", {
-	description = "Sol Block 2",
-	tiles = {"default_sol2.png"},
+minetest.register_node("default:stripes_surface", {
+	description = "Stripes Surface",
+	tiles = {"default_stripes_surface.png"},
 	is_ground_content = false,
 	drop = {},
 	groups = {unbreakable=1},
 	sounds = default.node_sound_stone_defaults(),
 })
+
+--tiled_brick
+minetest.register_node("default:tiled_brick_blue", {
+	description = "Tiled Brick Blue",
+	tiles = {"default_tiled_brick_blue.png"},
+	is_ground_content = false,
+	drop = {},
+	groups = {unbreakable=1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:tiled_brick_cyan", {
+	description = "Tiled Brick Cyan",
+	tiles = {"default_tiled_brick_cyan.png"},
+	is_ground_content = false,
+	drop = {},
+	groups = {unbreakable=1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:tiled_brick_grey", {
+	description = "Tiled Brick Grey",
+	tiles = {"default_tiled_brick_grey.png"},
+	is_ground_content = false,
+	drop = {},
+	groups = {unbreakable=1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:tiled_brick_light_blue", {
+	description = "Tiled Brick Light Blue",
+	tiles = {"default_tiled_brick_light_blue.png"},
+	is_ground_content = false,
+	drop = {},
+	groups = {unbreakable=1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:tiled_brick_monochrome", {
+	description = "Tiled Brick Monochrome",
+	tiles = {"default_tiled_brick_monochrome.png"},
+	is_ground_content = false,
+	drop = {},
+	groups = {unbreakable=1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+
 
 local i
 for _, i in pairs({"blue", "green", "orange"}) do
