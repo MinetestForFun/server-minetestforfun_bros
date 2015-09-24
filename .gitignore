@@ -1,1 +1,4 @@
 *.patch
+*.tmp
+*.patch
+*.swp

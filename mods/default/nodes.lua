@@ -1,5 +1,75 @@
 -- mods/default/nodes.lua
+--[[
+  Index
+  1.
+	default:brick
+	default:cobble
+	default:tiles
 
+  2.
+	default:stripes
+	default:stripes_surface
+
+  3.
+	default:dirt_with_grass
+
+]]--
+
+-- 1. Brick, cobble, tiles
+minetest.register_node("default:brick", {
+	description = "Bricks",
+	tiles = {"default_brick.png"},
+	groups = {unbreakable = 1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:cobble", {
+	description = "Cobblestone",
+	tiles = {"default_cobble.png"},
+	groups = {unbreakable = 1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:tiles", {
+	description = "Tiles",
+	tiles = {"default_tiles.png"},
+	groups = {unbreakable = 1},
+	sounds = default.node_sound_defaults(),
+})
+
+-- 2. Stipes, stipes block with surface
+minetest.register_node("default:stripes", {
+	description = "Stripes",
+	tiles = {"default_stripes.png"},
+	groups = {unbreakable = 1},
+	sounds = default.node_sound_defaults(),
+})
+
+minetest.register_node("default:stripes", {
+	description = "Stripes Surface",
+	tiles = {"default_stripe_top.png", "default_stripes.png",
+		"default_stripes.png^default_surface_layer.png"}
+	groups = {unbreakable = 1},
+	sounds = default.node_sound_defaults(),
+})
+
+-- 3. Dirt with Grass
+minetest.register_node("default:dirt_with_grass",
+	description = "Dirt with Grass",
+        tiles = {"default_grass.png", "default_dirt.png",
+                {name = "default_dirt.png^default_grass_side.png",
+                        tileable_vertical = false}},
+        groups = {crumbly = 3, soil = 1},
+        drop = 'default:dirt',
+        sounds = default.node_sound_dirt_defaults({
+                footstep = {name = "default_grass_footstep", gain = 0.25},
+        }),
+})
+
+	
+
+
+-- Unordered nodes
 --stone
 minetest.register_node("default:stone", {
 	description = "Stone",
