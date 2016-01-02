@@ -231,7 +231,7 @@ function mobs:register_mob(name, def)
 				-- floating in water (or falling)
 				local pos = self.object:getpos()
 				local nod = minetest.get_node_or_nil(pos)
-				if nod then nod = nod.name else nod = "default:dirt" end
+				if nod then nod = nod.name else nod = "default:stone" end
 				local nodef = minetest.registered_nodes[nod]
 
 				local v = self.object:getvelocity()
